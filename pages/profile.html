@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="games, css, flexbox, html, developers, developer, dewbie, newbie, javascript, learning, play and learn">
+    <meta name="description" content="Dewbie games is a platform where you can practice and learn software development by playing various games.">
+    <meta name="author" content="CRAG Team 🕹">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/profile.css">
+    <title>My Profile - Dewbie</title>
+</head>
+<body>
+    <header class="position-fixed">
+        <nav id="menuPrincipal" class="navbar navbar-expand-lg navbar-dark navbar-color">
+          <div class="container">
+            <a class="navbar-brand d-flex align-items-center flex-column" href="/index.html">
+              <div class="dewbie-logo">
+                <img class="img-logo" src="/assets/img/logo.png" alt="logo"/>
+                <h1 class="m-0 fs-5 d-inline">Dewbie Games</h1>
+              </div>
+            </a>
+            <small class="m-0 d-block text-secondary d-none d-md-block">Play & Learn software develpment!</small>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ol class="navbar-nav ms-auto gap-4">
+                <li class="nav-item d-none" id="admin-nav-item">
+                  <a href="/pages/admin.html" class="nav-link text-danger-emphasis">Administration</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/pages/contact.html" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item dropdown user-log text-center" id="user-log">
+                  <a class="nav-link" href="/pages/login.html">Log in</a>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <main id="main">
+        <div class="overlay">
+          <section class="banner">
+            <div class="d-lg-none edit position-absolute bottom-0 left-0 m-1" onclick="openEditBannerModal()"><i class="bi bi-pencil-square fs-1"></i></div>
+            <div class="banner__edit">
+              <button class="py-2 my-4 mx-5 px-3" onclick="openEditBannerModal()">Change Image <i class="bi bi-pencil ms-2"></i></button>
+            </div>
+            <div class="banner__user">
+              <div class="banner__user__img" onclick="openEditPhotoModal()">
+                <div class="banner__user__img--overlay"><i class="bi bi-pencil fs-1"></i></div>
+                <div class="edit d-lg-none right-0"><i class="bi bi-pencil fs-1"></i></div>
+              </div>
+              <!-- <img src="/assets/img/profile-avatar-example.png" class="" alt="profile img"> -->
+              <div class="mt-2">
+                <h3 id="sessionUsername">session.username</h3>
+                <p id="sessionEmail">session.email</p>
+              </div>
+            </div>
+          </section>
+          <section class="d-flex justify-content-center align-items-center title">
+            <h1 id="sessionUsernameProfile" class="text-center d-none d-lg-block mb-5">session.username profile</h1>
+          </section>
+          <h2 class="m-3">My favorite games</h2>
+          <section class="mt-3" id="favorites-container">
+            <!-- script -->
+          </section>
+        </div>
+      </main>
+        <footer class="pt-5 footer">
+          <h4>Check our social networks!</h4>
+          <div class="social-icons-container">
+              <a href="/pages/404.html" class="social-icon"></a>
+              <a href="/pages/404.html" class="social-icon"></a>
+              <a href="/pages/404.html" class="social-icon"></a>
+              <a href="/pages/404.html" class="social-icon"></a>
+          </div>
+          <ul class="footer-menu-container">
+              <li class="menu-item">
+                <a href="/pages/aboutus.html">About Us</a>
+              </li>
+              <li class="menu-item">
+                <a href="/pages/contact.html">Contact Us</a>
+              </li>
+          </ul>
+          <span class="copyright">&copy;2023 CRAG Team. All rights reserved.</span>
+      </footer>
+<!-- Modal -->
+<div class="modal fade" id="changeUserPhotoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <form class="modal-content" onsubmit="changeAvatar(event)">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Avatar</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="clearInputs()"></button>
+      </div>
+      <div class="modal-body">
+        <div class="preview d-flex flex-column-reverse align-items-center justify-content-between text-center py-3">
+          <small>Preview</small>
+          <img id="modal-img-preview" src="" alt="preview">
+        </div>
+        <small class="input--error" id="InvalidURL">Please enter a valid URL</small>
+        <div class="input-group mb-3 position-relative">
+          <input type="text" name="avatarURL" id="avatarURLInput" class="form-control d-inline-block" placeholder="URL Image" aria-describedby="deleteAvatarBtn" onchange="onChangeImgPreview()" required>
+          <button class="btn btn-danger" type="button" id="deleteAvatarBtn" onclick="clearInputs()"><i class="bi bi-trash-fill"></i></button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" onclick="deleteAvatar()">Delete Profile Photo</button>
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal" onclick="clearInputs()">Close</button>
+        <button type="button" class="btn btn-dewbieviolet" onclick="changeAvatar(event)">Save changes</button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="changeBannerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Change Banner</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body px-2">
+        <h5 class="">Solid Colors</h5><hr>
+        <div class="d-flex flex-wrap gap-4 align-items-center justify-content-center mb-4">
+          <div class="banner-btn" id="b-btn-1" onclick="changeBanner(1)"></div>
+          <div class="banner-btn" id="b-btn-2" onclick="changeBanner(2)"></div>
+          <div class="banner-btn" id="b-btn-3" onclick="changeBanner(3)"></div>
+          <div class="banner-btn" id="b-btn-4" onclick="changeBanner(4)"></div>
+          <div class="banner-btn" id="b-btn-5" onclick="changeBanner(5)"></div>
+          <div class="banner-btn" id="b-btn-6" onclick="changeBanner(6)"></div>
+          <div class="banner-btn" id="b-btn-7" onclick="changeBanner(7)"></div>
+          <div class="banner-btn" id="b-btn-8" onclick="changeBanner(8)"></div>
+          <div class="banner-btn" id="b-btn-9" onclick="changeBanner(9)"></div>
+          <!-- <div class="banner-btn-c fs-1 d-flex justify-content-center align-items-center" id="b-btn-c"><input type="color" name="customcolor" id="custom-banner-color" value="#999999" oninput="changeBanner('c')"></div> -->
+          <!-- <input type="color" name="custom-banner-color" id="custom-banner-color b-btn-c" class="banner-btn-c fs-1 d-flex justify-content-center align-items-center"> -->
+        </div>
+        <h5 class="">Gradient Banners</h5><hr>
+        <div class="d-flex flex-wrap gap-4 align-items center justify-content-center mb-4">
+          <div class="banner-btn" id="b-btn-10" onclick="changeBanner(10)"></div>
+          <div class="banner-btn" id="b-btn-11" onclick="changeBanner(11)"></div>
+          <div class="banner-btn" id="b-btn-12" onclick="changeBanner(12)"></div>
+          <div class="banner-btn" id="b-btn-13" onclick="changeBanner(13)"></div>
+          <div class="banner-btn" id="b-btn-14" onclick="changeBanner(14)"></div>
+          <div class="banner-btn" id="b-btn-15" onclick="changeBanner(15)"></div>
+          <div class="banner-btn" id="b-btn-16" onclick="changeBanner(16)"></div>
+          <div class="banner-btn" id="b-btn-17" onclick="changeBanner(17)"></div>
+          <div class="banner-btn" id="b-btn-18" onclick="changeBanner(18)"></div>
+          <div class="banner-btn" id="b-btn-19" onclick="changeBanner(19)"></div>
+          <div class="banner-btn" id="b-btn-20" onclick="changeBanner(20)"></div>
+          <div class="banner-btn" id="b-btn-21" onclick="changeBanner(21)"></div>
+          <div class="banner-btn" id="b-btn-22" onclick="changeBanner(22)"></div>
+          <div class="banner-btn" id="b-btn-23" onclick="changeBanner(23)"></div>
+        </div>
+        <h5 class="">Custom Banners</h5><hr>
+        <div class="d-flex flex-wrap gap-4 align-items center justify-content-center mb-4">
+          <div class="banner-btn custom-banner-img" id="b-btn-24" onclick="changeBanner(24)"></div>
+          <div class="banner-btn custom-banner-img" id="b-btn-25" onclick="changeBanner(25)"></div>
+          <div class="banner-btn custom-banner-img" id="b-btn-26" onclick="changeBanner(26)"></div>
+          <div class="banner-btn custom-banner-img" id="b-btn-27" onclick="changeBanner(27)"></div>
+          <div class="banner-btn custom-banner-img" id="b-btn-28" onclick="changeBanner(28)"></div>
+          <div class="banner-btn custom-banner-img" id="b-btn-29" onclick="changeBanner(29)"></div>
+          <div class="banner-btn custom-banner-img" id="b-btn-30" onclick="changeBanner(30)"></div>
+          <div class="banner-btn custom-banner-img" id="b-btn-31" onclick="changeBanner(31)"></div>
+          <div class="banner-btn custom-banner-img" id="b-btn-32" onclick="changeBanner(32)"></div>
+          <div class="banner-btn custom-banner-img" id="b-btn-33" onclick="changeBanner(33)"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal" onclick="">Close</button>
+        <!-- <button type="button" class="btn btn-dewbieviolet" onclick="">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="/app.js"></script>
+    <script src="/js/profile.js"></script>
+</body>
+</html>

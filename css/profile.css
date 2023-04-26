@@ -1,0 +1,376 @@
+.navbar{background-color: rgba(0, 0, 0, 0.15);}
+
+.navbar-color{background-color:rgba(91, 0, 176,0.5)}
+
+.banner{
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background: var(--DewbieViolet);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.banner__user{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    text-align: center;
+    margin: 0px auto;
+    top: 200px;
+    left: 0px;
+    right: 0px;
+}
+
+.banner__user__img{
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    border: 3px solid white;
+    cursor: pointer;
+    /* background-image: url(/assets/img/profile-avatar-example.png); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    backdrop-filter: blur(10px);
+}
+
+.edit{
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    color: black;
+    border-radius: 50%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit:nth-of-type(1){
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    z-index: 10;
+    cursor:pointer;
+}
+
+
+.banner__edit, .banner__user__img--overlay {display: none;}
+
+.title{
+    height: 25vh;
+}
+
+body{
+    background-image: url(https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/619150/3bb00cbe95127f2fe36c85a33cfe69f4e5911234.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.overlay{
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.game-article{
+    background-color: rgba(100, 100, 100, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.modal-content{
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.preview{
+    width: 100%;
+}
+
+.preview img{
+    background-color: #999;
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.input--error{
+    color: red;
+    opacity: 0%;
+}
+.input--error-relative{position:relative}
+
+.banner-btn{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    /* border: 1px solid white; */
+    cursor: pointer;
+}
+
+.banner-btn-c{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#b-btn-c::content{
+    content: 'C';
+}
+
+#custom-banner-color{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    width: 75px;
+    height: 75px;
+    border: none;
+    cursor: pointer;
+}
+
+#custom-banner-color::-webkit-color-swatch{
+    border-radius: 50%;
+    /* border: 1px solid white; */
+}
+
+#custom-banner-color::-moz-color-swatch{
+    border-radius: 50%;
+    /* border: 1px solid white; */
+}
+
+#b-btn-1{
+    background: #ff6961;
+}
+#b-btn-2{
+    background: #84b6f4;
+}
+#b-btn-3{
+    background: #69df69;
+}
+#b-btn-4{
+    background: #fdfd96;
+}
+#b-btn-5{
+    background: rgb(255, 94, 0);
+}
+#b-btn-6{
+    background: rgb(100, 255, 191);
+}
+#b-btn-7{
+    background: var(--DewbieViolet);
+}
+#b-btn-8{
+    background: #ff85d5;
+}
+#b-btn-9{
+    background: #c5c6c8;
+}
+#b-btn-10{
+    background: #FF0099;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #493240, #FF0099);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #493240, #FF0099); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#b-btn-11{
+    background: #FFE000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #799F0C, #FFE000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #799F0C, #FFE000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+}
+#b-btn-12{
+    background: #f12711;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#b-btn-13{
+    background: #1488CC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #2B32B2, #1488CC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #2B32B2, #1488CC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#b-btn-14{
+    background: #833ab4;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #fcb045, #fd1d1d, #833ab4);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #fcb045, #fd1d1d, #833ab4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+}
+#b-btn-15{
+    background: #8E2DE2;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #4A00E0, #8E2DE2);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#b-btn-16{
+    background: #9796f0;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #fbc7d4, #9796f0);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #fbc7d4, #9796f0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#b-btn-17{
+    background: #ffe259;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #ffa751, #ffe259);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #ffa751, #ffe259); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#b-btn-18{
+    background: #acb6e5;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #86fde8, #acb6e5);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #86fde8, #acb6e5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#b-btn-19{
+    background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#b-btn-20{
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#b-btn-21{
+    background: #8E0E00;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #1F1C18, #8E0E00);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #1F1C18, #8E0E00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+}
+#b-btn-22{
+    background: #005C97;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #363795, #005C97);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #363795, #005C97); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+}
+#b-btn-23{
+    background: #232526;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+}
+#b-btn-24{
+    background-image: url(/assets/img/banners/custom-banner1.jpg);
+}
+#b-btn-25{
+    background-image: url(/assets/img/banners/custom-banner2.jpg);
+}
+#b-btn-26{
+    background-image: url(/assets/img/banners/custom-banner3.jpg);
+}
+#b-btn-27{
+    background-image: url(/assets/img/banners/custom-banner4.png);
+}
+#b-btn-28{
+    background-image: url(/assets/img/banners/custom-banner5.jpg);
+}
+#b-btn-29{
+    background-image: url(/assets/img/banners/custom-banner6.jpg);
+}
+#b-btn-30{
+    background-image: url(/assets/img/banners/custom-banner7.jpg);
+}
+#b-btn-31{
+    background-image: url(/assets/img/banners/custom-banner8.jpg);
+}
+#b-btn-32{
+    background-image: url(/assets/img/banners/custom-banner9.jpg);
+}
+#b-btn-33{
+    background-image: url(/assets/img/banners/custom-banner10.jpg);
+}
+
+.custom-banner-img{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#favorites-container{
+    width: 100%;
+    backdrop-filter: blur(10px);
+}
+
+#favorites-container .d-flex{min-height: 40vh;}
+
+.game-data section, .game-data article{
+    flex-basis: 50%;
+}
+
+.game-img{
+    background-image: url(https://s3-us-west-2.amazonaws.com/steemhunt/production/steemhunt/2019-02-05/6a0b1843-8.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    flex-shrink: 3;
+}
+
+.game-card-overlay{
+    background-color: rgba(0, 0, 0, 0.35);
+    cursor:pointer;
+    opacity: 0%;
+}
+
+.game-card-overlay:hover{
+    opacity: 100%;
+    transition: .7s;
+}
+
+.game-info{
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.35);
+    flex-grow: 2;
+}
+
+.no-favs{
+    height: 40vh;
+    display: grid;
+    place-items: center;
+    /* background-color: rgba(0, 0, 0, 0.3); */
+}
+
+@media (min-width: 992px) {
+    .banner__user{
+        margin: 0;
+        left: 50px;
+        right: auto;
+    }
+    .banner__user__img--overlay{
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0%;
+    }
+    
+    .banner__user__img--overlay:hover{
+        opacity: 100%;
+        transition: 0.3s;
+    }
+    
+    .banner__edit{
+        display: block;
+        background-color: rgba(0, 0, 0, 0.15);
+        width: 100%;
+        height: 100%;
+        opacity: 0%;
+        position: relative;
+    }
+    
+    .banner__edit:hover{
+        opacity: 100%;
+    }
+    
+    .banner__edit button{
+        background-color: rgba(255, 255, 255, 0.5);
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        border-radius: 20px;
+        cursor: pointer;
+        color: black;
+        border:none;
+        outline: none;
+    }
+    
+    .banner__edit:hover{
+        opacity: 100%;
+    }
+}

@@ -1,0 +1,45 @@
+.background{
+    background-image: url(https://robocode.sourceforge.io/gfx/robocode_logo_tanks.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.blur{
+    backdrop-filter: blur(10px);
+}
+.overlay{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: grayscale(100%);
+}
+section{
+    padding: 150px 20px;
+}
+
+.row{
+    background-color: rgb(20, 20, 20);
+    color: white;
+    border-radius: 20px;
+    margin: 20px;
+}
+
+.favorite-badge{
+    font-size: small;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.badge{
+    font-size: large;
+}
+
+@media (min-width:768px) {
+    .favorite-badge{
+        top:10px;
+        left: auto;
+        right: 10px;
+    }
+}

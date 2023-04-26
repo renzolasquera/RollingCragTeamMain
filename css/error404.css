@@ -1,0 +1,22 @@
+
+main{
+display:flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+background-color: black;
+padding: 20vh 0 40px 0;
+}
+.imagenerror{
+width: 100%;
+}
+@media (min-width:768px) {
+.imagenerror{
+    width: 50%;
+}   
+}
+/*main h2 {
+    text-align: center;
+    padding-left: 5vw;
+
+}*/

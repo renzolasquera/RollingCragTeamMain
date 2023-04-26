@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <title>Dewbie Admins</title>
+</head>
+<body>
+    <header>
+        <nav id="menuPrincipal" class="navbar navbar-expand-lg  navbar-dark">
+            <div class="container">
+              <a class="navbar-brand d-flex align-items-center flex-column" href="/index.html">
+                <div class="dewbie-logo">
+                  <img class="img-logo" src="/assets/img/logo.png" alt="logo"/>
+                  <h2 class="m-0 fs-5 d-inline">Dewbie Games</h2>
+                </div>
+              </a>
+              <small class="m-0 d-block text-secondary d-none d-md-block">Play & Learn software develpment!</small>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ol class="navbar-nav ms-auto gap-4">
+                  <li class="nav-item d-none" id="admin-nav-item">
+                    <a href="/pages/admin.html" class="nav-link text-danger-emphasis">Administration</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/pages/contact.html" class="nav-link">Contact</a>
+                  </li>
+                  <li class="nav-item dropdown user-log text-center" id="user-log">
+                    <a class="nav-link" href="/pages/login.html">Log in</a>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </nav>
+    </header>
+    <main class="" id="main">
+      <div class="row flex-row-reverse w-100 g-2 justify-content-center">
+        <section class="col-12 mx-1">
+            <div class="m-2 panel">
+                <h2>Games List</h2>
+                <table class="table table-dark table-striped-columns" id="game-table">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="d-none d-md-table-cell text-center">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col" class="d-none d-md-table-cell">Description</th>
+                        <th scope="col" class="d-none d-lg-table-cell">Category</th>
+                        <th scope="col" class="text-center">Public</th>
+                        <th class="text-center" scope="col">Edit</th>
+                        <th class="text-center" scope="col">Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody id="game-table__body">
+                      <!-- <tr>
+                        <th scope="row">Example</th>
+                        <td class="text-justify">(Example desc) Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, perferendis.</td>
+                        <td>CSS, Javascript</td>
+                        <td class="text-center fs-3"><i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#editGameModal"></i></td>
+                        <td class="text-center fs-3"><i class="text-danger mx-1 bi bi-trash-fill"></i></td>
+                      </tr> -->
+                    </tbody>
+                  </table>
+                  <div class="d-flex justify-content-center align-items-center align-items-md-end flex-column">
+                      <div class="d-flex flex-column justify-content-center align-items-center">
+                          <h6>Select featured game</h6>
+                          <select name="featured-select" id="featured-select" class="btn btn-dewbieviolet" onchange="selectFeatured()"></select>
+                      </div>
+                  </div>
+            </div>
+        </section>
+        <section class="col-12 col-lg-6 p-3">
+            <div class="panel panel-transparency">
+                <form action="" onsubmit="addNewGame(event)" class="gap-3 d-flex flex-column">
+                    <h2>Add a new game</h2>
+                    <input type="text" name="name" id="game-name" class="form-control" placeholder="Title" required>
+                    <input type="text" name="url" id="game-url" class="form-control" placeholder="Game URL" required>
+                    <input type="text" name="video" id="video-url" class="form-control" placeholder="Video URL" required>
+                    <textarea name="game-description" id="game-description" class="form-control" placeholder="Description" cols="30" rows="10" style="resize:none;" required></textarea>
+                    <div class="d-block d-lg-flex">
+                      <select class="form-select btn btn-dewbieviolet d-inline mb-3 mb-lg-0 me-lg-2" id="game-category" aria-label="Default select example" required>
+                        <option value="HTML">HTML</option>
+                        <option value="CSS">CSS</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="Java">Java</option>
+                        <option value="C">C</option>
+                        <option value="C++">C++</option>
+                        <option value="C#">C#</option>
+                        <option value="Python">Python</option>
+                        <option value="SQL">SQL</option>
+                        <option value="Assembly">Assembly</option>
+                        <option value="Kotlin">Kotlin</option>
+                        <option value="Framework">Frameworks</option>
+                        <option value="Others" selected>Other...</option>
+                      </select>
+                      <input type="text" name="imageURL" id="game-imageURL" class="form-control d-inline-block" placeholder="URL Image" required>
+                    </div>
+                    <button class="btn btn-dewbieviolet d-grid d-lg-inline-block"><i class="bi bi-plus-lg"></i> Add</button>
+                </form>
+            </div>
+        </section>
+        <section class="col-12 col-lg-6 p-3">
+            <div class="panel d-flex flex-column justify-content-between h-100 w-100">
+                <article class="users">
+                    <header>
+                        <h2>Users List</h2>
+                    </header>
+                    <main>
+                        <table class="table table-dark table-striped">
+                            <thead>
+                              <tr>
+                                <th scope="col">Name</th>
+                                <th class="d-none d-md-table-cell" scope="col">Email</th>
+                                <th class="text-center" scope="col">Admin</th>
+                                <th class="text-center" scope="col">Delete</th>
+                              </tr>
+                            </thead>
+                            <tbody id="user-table__body">
+                              <!-- <tr>
+                                <th scope="row">Example</th>
+                                <td>example@example.com</td>
+                                <td class="text-center fs-4">
+                                    <div class="form-check form-switch d-flex justify-content-center align-items-center">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                    </div>
+                                </td>
+                                <td class="text-center fs-3"><i class="text-danger bi bi-trash-fill"></i></td>
+                              </tr> -->
+                            </tbody>
+                          </table>
+                    </main>
+                </article>
+                <article class="queue">
+                    <header>
+                        <h2>Users in queue</h2>
+                    </header>
+                    <main>
+                        <table class="table table-dark table-striped">
+                            <thead>
+                              <tr>
+                                <th scope="col">Name</th>
+                                <th class="d-none d-md-table-cell" scope="col">Email</th>
+                                <th class="text-center" scope="col">Accept</th>
+                                <th class="text-center" scope="col">Reject</th>
+                              </tr>
+                            </thead>
+                            <tbody id="queue-table__body">
+                              <!-- <tr>
+                                <th class="vertical-align-center" scope="row">Example</th>
+                                <td class="vertical-align-center">example@example.com</td>
+                                <td class="text-center fs-3"><i class="text-success mx-1 bi bi-check-lg"></i></td>
+                                <td class="text-center fs-3"><i class="text-danger mx-1 bi bi-x-lg"></i></td>
+                              </tr> -->
+                            </tbody>
+                          </table>
+                    </main>
+                </article>
+            </div>
+        </section>
+        <!-- <section class="user-panel">
+            <article class="passwords-request">
+            </article>
+        </section> -->
+      </div>
+    </main>
+    <footer class="pt-5 footer">
+        <h4>Check our social networks!</h4>
+        <div class="social-icons-container">
+            <a href="/pages/404.html" class="social-icon"></a>
+            <a href="/pages/404.html" class="social-icon"></a>
+            <a href="/pages/404.html" class="social-icon"></a>
+            <a href="/pages/404.html" class="social-icon"></a>
+        </div>
+        <ul class="footer-menu-container">
+            <li class="menu-item">
+              <a href="/pages/aboutus.html">About Us</a>
+            </li>
+            <li class="menu-item">
+              <a href="/pages/contact.html">Contact Us</a>
+            </li>
+        </ul>
+        <span class="copyright">&copy;2023 CRAG Team. All rights reserved.</span>
+    </footer>
+    <!-- Modal -->
+    <div class="modal fade" id="editGameModal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Edit Game</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="preview">
+              <small>Preview</small>
+              <img id="modal-img-preview" src="" alt="preview">
+            </div>
+            <form action="" onsubmit="editGame(event)" class="gap-3 d-flex flex-column">
+              <label for="name">Title</label>
+              <input type="text" name="name" id="game-name__edit-modal" class="form-control" placeholder="Name" required>
+              <label for="url">URL Game</label>
+              <input type="text" name="url" id="game-url__edit-modal" class="form-control" placeholder="Game URL" required>
+              <label for="video">URL Video</label>
+              <input type="text" name="video" id="video-url__edit-modal" class="form-control" placeholder="Video URL" required>
+              <label for="game-description">Description</label>
+              <textarea name="game-description" id="game-description__edit-modal" class="form-control" placeholder="Description" required cols="30" rows="10" style="resize:none;"></textarea>
+              <div class="d-block d-lg-flex">
+                <div class="mb-3 mb-lg-0 me-lg-2">
+                  <label for="select-category">Select Category</label>
+                  <select name="select-category" class="form-select btn btn-dewbieviolet" id="game-category__edit-modal" aria-label="Default select example" required>
+                    <option value="HTML">HTML</option>
+                    <option value="CSS">CSS</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="Java">Java</option>
+                    <option value="C">C</option>
+                    <option value="C++">C++</option>
+                    <option value="C#">C#</option>
+                    <option value="Python">Python</option>
+                    <option value="SQL">SQL</option>
+                    <option value="Assembly">Assembly</option>
+                    <option value="Kotlin">Kotlin</option>
+                    <option value="Framework">Frameworks</option>
+                    <option value="Others" selected>Other...</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="imageURL">Image URL</label>
+                  <input type="text" name="imageURL" id="game-imageURL__edit-modal" class="form-control d-inline-block" placeholder="URL Image" required onchange="onChangeImgPreview()">
+                </div>
+              </div>
+          </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-dewbieviolet" onclick="editGame(event)">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="/app.js"></script>
+    <script src="/js/admin.js"></script>
+    <script src="https://kit.fontawesome.com/8cfaa6df50.js" crossorigin="anonymous"></script>
+</body>
+</html>

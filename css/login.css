@@ -1,0 +1,349 @@
+@font-face {
+    font-family: 'Outfit';
+    src: url(/assets/fonts/Outfit.ttf);
+}
+
+:root{
+    --DewbieViolet: #5b00b0;
+    --DewbieVioletTransparency: rgba(91, 0, 176,0.3);
+    --DewbieVioletDark: #250047;
+    --TransparentWhite: rgb(255,255,255,0.7);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif;
+}
+
+*::selection{
+    background-color: var(--DewbieVioletTransparency);
+}
+
+body{
+    background-color: black;
+}
+
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Animated Background*/
+
+.container{
+    position: absolute;
+    height: 100%;
+    width: 100vw;
+    gap: 0.125rem;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+.container::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(black,var(--DewbieViolet),black);
+    animation: Animate 15s linear infinite;
+}
+
+@keyframes Animate{
+    0%{
+        transform: translateY(-100%);
+    }
+    50%{
+        transform: translateY(100vh);
+    }
+    100%{
+        transform: translateY(-100%)
+    }
+}
+
+.block{
+    position: relative;
+    display: block;
+    width: calc(6.25vw - 2px);
+    height: calc(6.25vw - 2px);
+    background-color: rgb(18,18,18);
+    transition: .5s;
+}
+
+.block:hover{
+    background-color: var(--DewbieViolet);
+    transition: 0s;
+}
+
+/* Login */
+
+h3{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/*Login & Register styles*/
+
+.menu{
+    width: 100vw;
+    height: 100vh;
+}
+
+section{
+    width: 100%;
+    padding: 1.25rem;
+    margin: auto;
+}
+
+.forms{
+    width: 100%;
+    max-width: 50rem;
+    margin: auto;
+    position: relative;
+}
+
+.forms__rearbox{
+    width: 100%;
+    padding: 0.625rem 1.25rem;
+    -webkit-backdrop-filter: blur(0.625rem);
+    backdrop-filter: blur(0.625rem);
+    background-color: var(--DewbieVioletTransparency);
+
+}
+
+.forms__rearbox div{
+    margin: 6.25rem 2.5rem;
+    color: white;
+    transition: all 500ms;
+}
+
+
+.forms__rearbox div p,
+.forms__rearbox button{
+    margin-top: 1.875rem;
+}
+
+.forms__rearbox div h3{
+    font-weight: 400;
+    font-size: 1.625rem;
+}
+
+.forms__rearbox div p{
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.forms__rearbox button, .modal__button{
+    padding: 0.625rem 2.5rem;
+    border: 0.125rem solid #fff;
+    font-size: 0.875rem;
+    background: transparent;
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+    outline: none;
+    transition: all 300ms;
+}
+
+.forms__rearbox button:hover, .modal__button:hover{
+    background: #fff;
+    color: var(--DewbieViolet);
+}
+
+.go-home a{
+    color: #fff;
+    position: absolute;
+}
+.go-home a:visited{color: #fff;}
+.go-home:first-child{left: 10px;}
+.go-home:nth-child(2){right: 10px;}
+
+/*Forms*/
+
+.container__login-register{
+    width: 100%;
+    max-width: 23.75rem;
+    position: relative;
+    top: -11.5625rem;
+    left: 0.625rem;
+    /*La transicion va despues del codigo JS*/
+    transition: left 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+}
+
+.container__login-register form{
+    width: 100%;
+    padding: 5rem 1.25rem;
+    background: #fff;
+    position: absolute;
+    border-radius: 1.25rem;
+}
+
+.container__login-register form h2{
+    font-size: 1.875rem;
+    text-align: center;
+    margin-bottom: 1.25rem;
+    color: var(--DewbieViolet);
+}
+
+.container__login-register form input, .modal__content form input{
+    width: 100%;
+    margin: 1.25rem 0rem;
+    padding: 0.625rem;
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    outline: none;
+    color:var(--DewbieVioletDark)
+}
+
+.container__login-register form input:focus, #forgot-password-input{border-bottom: 3px solid var(--DewbieViolet);}
+
+.container__login-register form button{
+    padding: 0.625rem 2.5rem;
+    margin-top: 2.5rem;
+    border: none;
+    font-size: 0.875rem;
+    background: var(--DewbieViolet);
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+    outline: none;
+}
+
+.container__login-register form button:hover{
+    background: #fff;
+    color: var(--DewbieViolet);
+    outline: 0.125rem solid var(--DewbieViolet);
+    transition: all .3s;
+}
+
+.form__login{
+    opacity: 1;
+    display: block;
+}
+.form__register{
+    display: none;
+}
+
+.input--error{
+    color: red;
+    position: absolute;
+    display: none;
+}
+.input--error-relative{position:relative}
+
+/*Modal*/
+
+#modal{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background-color: #00000080;
+    backdrop-filter: blur(8px);
+    transition: 0.5s;
+    top: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+/* #modal:hover .modal__container{
+    transform: translateY(0%);
+    transition: 0.1s;
+} */
+
+.modal__container{
+    margin: 20px;
+    min-width: 400px;
+    color: var(--DewbieVioletDark);
+    background-color: var(--TransparentWhite);
+    position: relative;
+    padding: 30px;
+    border-radius: 10px;
+    /* transform: translateY(-150%); */
+}
+
+.modal__content{
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.modal__content img{margin: 10px;}
+
+.modal__content h3{font-size: x-large;}
+
+.modal__content form{
+    display: grid;
+    gap: 10px;
+    width: 100%;
+}
+
+.modal__content form button{
+    border: 3px solid var(--DewbieViolet);
+    color: var(--DewbieViolet);
+}
+
+.modal__content form button:hover{
+    background-color: var(--DewbieViolet);
+    color: #fff;
+}
+
+#forgot-input{
+    background: transparent;
+    color: var(--DewbieVioletDark);
+    border-bottom: 3px solid var(--DewbieViolet);
+}
+
+@media screen and (max-width: 850px){
+    /* background */
+    .block{
+        display: none;
+    }
+
+    body{
+        background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(37,0,71,1) 50%, rgba(91,0,176,1) 100%);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+    .container::before{
+        animation: none;
+        display:none
+    }
+
+    .forms__rearbox{
+        max-width: 21.875rem;
+        height: 18.75rem;
+        flex-direction: column;
+        margin: auto;
+    }
+
+    .forms__rearbox div{
+        margin: 0rem;
+        position: absolute;
+    }
+
+    /*Forms*/
+    .container__login-register{
+        top: -0.625rem;
+        left: -0.3125rem;
+        margin: auto;
+    }
+
+    .container__login-register form{
+        position: relative;
+    }
+
+    /*modal*/
+    .modal__container{
+        min-width: 0px;
+    }
+
+    .modal__content h3{font-size: large;}
+}
